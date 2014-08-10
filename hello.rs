@@ -33,6 +33,10 @@ fn main() {
       count += 1;
   }
 
+  for num in range(0i, 10i) {
+    println!("{}", num);
+  }
+
   let x: int = 4;
   match x {
     0 => { ; } // Do nothing
