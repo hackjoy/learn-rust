@@ -1,3 +1,10 @@
-*
-!*.rs
-!*.md
+.DS_Store
+hello
+pre-1.0/advanced_hello
+pre-1.0/fizzbuzz
+pre-1.0/functions
+pre-1.0/hello_parallel
+pre-1.0/hello_single
+pre-1.0/matching
+
+pre-1.0/*.exe
