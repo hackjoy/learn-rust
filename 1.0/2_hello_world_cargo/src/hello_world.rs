@@ -8,5 +8,5 @@ fn main() {
 // ; is the end of an expression
 
 // rust is a compiled language
-// rustc hello.rs gives us a binary executable
-// ./hello executes it
+// `cargo build` gives us a binary executable
+// ./target/hello_world executes it
