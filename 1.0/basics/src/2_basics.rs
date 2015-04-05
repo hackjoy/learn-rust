@@ -1,3 +1,8 @@
+// rust is a compiled language
+// `cargo new project_name`
+// `cargo build` gives us a binary executable
+// ``./target/project_name` or `cargo run` executes it
+
 fn main() {
     // VARIABLES
     // *******************************************
@@ -283,26 +288,3 @@ fn main() {
         println!("{}", input);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
