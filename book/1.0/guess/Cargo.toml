@@ -1,0 +1,5 @@
+[package]
+
+name = "guess"
+version = "0.0.1"
+authors = ["Jack Hoy <jackhoy05@gmail.com>"]

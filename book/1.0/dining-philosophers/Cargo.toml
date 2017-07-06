@@ -1,0 +1,4 @@
+[package]
+name = "dining-philosophers"
+version = "0.1.0"
+authors = ["Jack Hoy <jackhoy05@gmail.com>"]
