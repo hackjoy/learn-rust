@@ -7,6 +7,8 @@ struct Node {
     elem: i32,
     next: Link,
 }
+
+// This is actually just Option<Box<Node>>
 enum Link {
     Empty,
     More(Box<Node>),
