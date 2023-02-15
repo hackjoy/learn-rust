@@ -39,3 +39,24 @@ pub enum List {
 
 `Struct` declares a type that can contain many values at once.
 
+A better approach 
+
+```
+pub struct List {
+    head: Link,
+}
+
+enum Link {
+    Empty,
+    More(Box<Node>),
+}
+
+struct Node {
+    elem: i32,
+    next: Link,
+}
+```
+
+Now tail of a list never allocates extra empty nodes, enum is in null-pointer-optimized form, all elements are uniformly allocated 
+
+The above approach keeps the public types to a minimum.
