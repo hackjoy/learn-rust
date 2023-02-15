@@ -16,6 +16,26 @@ Why? Less frequent allocation, lower memory overhead, true random access, and ca
 
 Linked Lists are as niche as trie structures. Useful only in exceptional circumstances. Arguments for this [here](https://rust-unofficial.github.io/too-many-lists/#performance-doesnt-always-matter). A Linked HashMap may be a better choice if needing a linked list.
 
+Approximate definition of a linked list is pieces of data on the heap that point to each other in sequence.
 
+A function definition:
+`List a = Empty | Elem a (List a)` 
 
+"A List is either Empty or an Element followed by a List"
+
+We could implement as follows but this has some drawbacks:
+```
+pub enum List {
+    Empty,
+    Elem(i32, Box<List>),
+}
+```
+`[Elem A, ptr] -> (Elem B, ptr) -> (Empty, *junk*)`
+- Last Node is not actually a Node, first node is not heap allocated.
+
+`Option` - type has no overhead for &, &mut, Box, Rc, Arc, Vec + more due to null pointer optimization.
+
+`Enum` declares a type that can be 1 of several values. 
+
+`Struct` declares a type that can contain many values at once.
 
