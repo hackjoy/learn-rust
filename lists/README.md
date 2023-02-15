@@ -33,11 +33,15 @@ pub enum List {
 `[Elem A, ptr] -> (Elem B, ptr) -> (Empty, *junk*)`
 - Last Node is not actually a Node, first node is not heap allocated.
 
-`Option` - type has no overhead for &, &mut, Box, Rc, Arc, Vec + more due to null pointer optimization.
+#### Option
+- A type that represents the presence or absence of a value (Some(T) or None)
+- type has no overhead for &, &mut, Box, Rc, Arc, Vec + more due to null pointer optimization.
 
-`Enum` declares a type that can be 1 of several values. 
+#### Enum 
+- declares a type that can be 1 of several values. 
 
-`Struct` declares a type that can contain many values at once.
+#### Struct
+- Declares a type that can contain many values at once.
 
 A better approach 
 
@@ -60,3 +64,25 @@ struct Node {
 Now tail of a list never allocates extra empty nodes, enum is in null-pointer-optimized form, all elements are uniformly allocated 
 
 The above approach keeps the public types to a minimum.
+
+#### Ownership
+
+```
+impl Something {
+  pub fn foo(self, elem: i32) -> SomethingElse {
+    // Code
+  }
+}
+```
+- First arg can be: `self` (Value), `&mut self` (mutable ref), `&self` (shared ref)
+  - self (Value): True ownership, can move, mutate, loan via ref. When passing by Value the new location (foo) owns the value, the old location can no longer access it. Therefore we don't typically want to pass the value as the calling code loses access to it.
+  -  `&mut self` (Mutable ref): temporary exclusive access to value you do not own allowing mutation. You cannot move the value.
+  - `&self` (Shared ref): temporary shared access to value you do not own. You cannot move/mutate the value. Can bypass immutability in some cases so called shared references rather than immutable
+
+#### Trait
+- Similar to an interface - functionality that a type has and can be shared with other types. The type must provide a specific implementation for the trait - it just conforms to the function signatures within the trait.
+
+
+#### Drop
+- A trait with a single method drop() that is called when an object goes out of scope.
+- Not required to implement for types that implement Drop
