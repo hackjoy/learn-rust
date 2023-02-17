@@ -86,3 +86,35 @@ impl Something {
 #### Drop
 - A trait with a single method drop() that is called when an object goes out of scope.
 - Not required to implement for types that implement Drop
+
+### Lifetime
+
+- Lifetimes prevent a program holding a pointer to something out of scope or something that got mutated away.
+- A lifetime is the name of the region (~block/scope) of code somewhere in a program. When a reference is tagged with a lifetime, we are declaring it must be valid for that entire region.
+- Different things place requirements on how long a reference must and can be valid for. The entire lifetime system is a constraint-solving system that minimises the region of each reference. If it successfully finds a set of lifetimes that satisfies all the constraints, your program compiles! Otherwise you get an error back saying that something didn't live long enough.
+- Within a function body the compiler has full information to infer constraints to find the minimum lifetimes.
+- At the type and API-level, the compiler doesn't have all the information. It requires you to tell it about the relationship between different lifetimes 
+- When using references - some lifetime cases are so common that Rust will automatically pick the lifetimes (a.k.a. lifetime elision)
+
+Examples:
+
+```rust
+// Only one reference in input, so the output must be derived from that input
+fn foo(&A) -> &B; // sugar for:
+fn foo<'a>(&'a A) -> &'a B;
+
+// Many inputs, assume they're all independent
+fn foo(&A, &B, &C); // sugar for:
+fn foo<'a, 'b, 'c>(&'a A, &'b B, &'c C);
+
+// Methods, assume all output lifetimes are derived from `self`
+fn foo(&self, &B, &C) -> &D; // sugar for:
+fn foo<'a, 'b, 'c>(&'a self, &'b B, &'c C) -> &'a D;
+```
+
+
+```rust
+fn foo<'a>(&'a A) -> &'a B
+```
+Above means the input must live at least as long as the output. If the output is kept around for a long time, it expands the region that the input must be valid for. 
+Once output B is no longer in use, the compiler knows it can free A
