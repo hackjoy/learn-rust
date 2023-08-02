@@ -7,7 +7,7 @@
 // &T	     Reference	           Allows one or more references to read T
 // &mut T	 Mutable Reference	   Allows a single reference to read and write T
 // Box<T>    Box	               Heap allocated T with a single owner that may read and write T.
-// Rc<T>	 "arr cee" pointer	   Heap allocated T with many readers
+// Rc<T>	 "arr cee" pointer	   Heap allocated T, read-only for any number of consumers
 // Arc<T>	 Arc pointer	       Same as above, but safe sharing across threads
 // *const T	 Raw pointer	       Unsafe read access to T
 // *mut T	 Mutable raw pointer   Unsafe read and write access to T

@@ -3,6 +3,7 @@
 // `cargo build` gives us a binary executable
 // ``./target/project_name` or `cargo run` executes it
 
+// fn main runs first
 fn main() {
     // VARIABLES
     // *******************************************

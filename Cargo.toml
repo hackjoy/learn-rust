@@ -1,0 +1,8 @@
+# This enables multiple Rust projects within a directory to work with rust-analyzer
+[workspace]
+members = [
+    "./examples/lists",
+    "./books/the-rust-programming-language/examples/dining_philosophers",
+    "./books/the-rust-programming-language/examples/hello_world",
+    "./books/the-rust-programming-language/examples/guess"
+]
