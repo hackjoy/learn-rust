@@ -1,7 +1,12 @@
-// rust is a compiled language
-// `cargo new project_name`
-// `cargo build` gives us a binary executable
-// ``./target/project_name` or `cargo run` executes it
+# Rust 101
+
+- Rust is a compiled language
+- `cargo new project_name`
+- `cargo build` gives us a binary executable
+- `./target/project_name` or `cargo run` executes it
+
+```rust
+use std::cmp::Ordering;
 
 // fn main runs first
 fn main() {
@@ -28,7 +33,7 @@ fn main() {
     // one of the main reasons for this is safety,
     // preventing you from mutating something you may not have meant to.
     // To get a mutable var do:
-    let mut x = 10
+    let mut x = 10;
 
     // we interpolate variables with moustaches
     println!("The number {} is a mutable variable", x);
@@ -46,7 +51,7 @@ fn main() {
     let y = if x == 10 { 10 } else { 15 };
 
     // The first kind of statement is a declaration statement
-    let z = 5            // works
+    let z = 5;            // works
     // let is a declaration statement which expects an
     // expression, so the below errors
     let x = (let y = 5); // expected identifier, found keyword `let`
@@ -92,7 +97,7 @@ fn main() {
     // from a function:
     fn next_two(x: i32) -> (i32, i32) { (x + 1, x + 2) }
 
-    fn main() {
+    {
         let (x, y) = next_two(5);
         println!("x, y = {}, {}", x, y);
     }
@@ -106,9 +111,9 @@ fn main() {
         y: i32,
     }
 
-    fn main() {
+    {
         let mut origin = Point { x: 0, y: 0 }; // origin: Point
-        origin.x = 5
+        origin.x = 5;
         println!("The origin is at ({}, {})", origin.x, origin.y);
     }
 
@@ -124,7 +129,7 @@ fn main() {
 
     // we can use it in code with the folowing
     //  :: refers to a namespace
-    use std::cmp::Ordering;
+
 
     fn cmp(a: i32, b: i32) -> Ordering {
         if a < b { Ordering::Less }
@@ -132,7 +137,7 @@ fn main() {
         else { Ordering::Equal }
     }
 
-    fn main() {
+    {
         let x = 5;
         let y = 10;
 
@@ -225,7 +230,7 @@ fn main() {
         println!("Got: {}", slice);
     }
 
-    fn main() {
+    {
         let s = "Hello".to_string();
         takes_slice(s.as_slice());
     }
@@ -277,7 +282,7 @@ fn main() {
     // STANDARD INPUT
     use std::old_io;
 
-    fn main() {
+    {
         println!("Type something!");
 
         // here, we'll show the types at each step
@@ -289,3 +294,4 @@ fn main() {
         println!("{}", input);
     }
 }
+```
