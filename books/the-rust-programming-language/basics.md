@@ -6,7 +6,7 @@
 - `./target/project_name` or `cargo run` executes it
 
 ```rust
-use std::cmp::Ordering;
+use std::cmp::Ordering; // import packages
 
 // fn main runs first
 fn main() {
