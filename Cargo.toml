@@ -2,6 +2,7 @@
 [workspace]
 members = [
     "./examples/lists",
+    "./courses/building_reusable_code",
     "./books/the-rust-programming-language/examples/dining_philosophers",
     "./books/the-rust-programming-language/examples/hello_world",
     "./books/the-rust-programming-language/examples/guess"

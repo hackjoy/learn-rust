@@ -81,6 +81,7 @@ struct Node {
 }
 
 fn main() {
+    // We reference count (Rc) each node itself - allowing multiple owners
     let leaf = Rc::new(Node {
         value: 3,
         parent: RefCell::new(Weak::new()),
